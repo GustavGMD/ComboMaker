@@ -71,6 +71,10 @@ public class InputManager : MonoBehaviour
         {
             OnAttackCancelPressed.Invoke();
         });
+
+        SetAttackCancelButton(false);
+        SetAttackConfirmButton(false);
+        SetAttackDirectionButtons(false);
     }
 
     public void SetMovementButtons(bool value)
