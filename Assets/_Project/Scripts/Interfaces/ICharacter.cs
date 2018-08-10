@@ -4,8 +4,9 @@ using UnityEngine;
 
 public interface ICharacter
  {
-	 //setters
-	 void SetOnDeathCallback(System.Action callback);
-	 
+	//setters
+	void SetOnDeathCallback(System.Action callback);
+
+    Vector2Int[] GetAttackPattern();
 	void TakeDamage(int damage);
 }

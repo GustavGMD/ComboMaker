@@ -6,12 +6,19 @@ using DG.Tweening;
 
 public class PlayerManager : MonoBehaviour, IMapElement, ICharacter
 {
+    [SerializeField] private AttackPattern currentWeapon;
+
     private Vector2Int staticPosition;
 
 	#region ICharacter
 	public void SetOnDeathCallback(Action callback)
     {
         throw new NotImplementedException();
+    }
+
+    public Vector2Int[] GetAttackPattern()
+    {
+        return currentWeapon.hitPositions;
     }
     public void TakeDamage(int damage)
     {

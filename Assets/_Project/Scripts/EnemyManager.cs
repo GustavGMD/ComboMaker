@@ -6,16 +6,24 @@ using DG.Tweening;
 
 public class EnemyManager : MonoBehaviour, IMapElement, ICharacter
 {
+    [SerializeField] private AttackPattern currentWeapon;
     private Vector2Int staticPosition;
+
+    private Action onDeath;
 
     #region ICharacter
     public void SetOnDeathCallback(Action callback)
     {
-        throw new NotImplementedException();
+        onDeath = callback;
+    }
+
+    public Vector2Int[] GetAttackPattern()
+    {
+        return currentWeapon.hitPositions;
     }
     public void TakeDamage(int damage)
     {
-        throw new NotImplementedException();
+        onDeath.Invoke();
     }
     #endregion
 
