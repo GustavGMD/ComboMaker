@@ -692,15 +692,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2294e822ac06081409e7fc4b051b48b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementButtonUp: {fileID: 607639314}
+  movementButtonDown: {fileID: 2107595261}
+  movementButtonRight: {fileID: 1121718028}
+  movementButtonLeft: {fileID: 1423834670}
+  attackDirectionButtonUp: {fileID: 0}
+  attackDirectionButtonDown: {fileID: 0}
+  attackDirectionButtonRight: {fileID: 0}
+  attackDirectionButtonLeft: {fileID: 0}
+  confirmAttackButton: {fileID: 0}
+  cancelAttackButton: {fileID: 0}
   OnPlayerMovePressed:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEventVector2Int, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  buttonUp: {fileID: 607639314}
-  buttonDown: {fileID: 2107595261}
-  buttonRight: {fileID: 1121718028}
-  buttonLeft: {fileID: 1423834670}
 --- !u!1 &2107595258
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,30 +6,93 @@ using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
-    public UnityEventVector2Int OnPlayerMovePressed;
+    [Header("Movement Buttons")]
+    public ButtonBehaviour movementButtonUp;
+    public ButtonBehaviour movementButtonDown;
+    public ButtonBehaviour movementButtonRight;
+    public ButtonBehaviour movementButtonLeft;
 
-    public ButtonBehaviour buttonUp;
-    public ButtonBehaviour buttonDown;
-    public ButtonBehaviour buttonRight;
-    public ButtonBehaviour buttonLeft;
+    [Header("Attack Direction Buttons")]
+    public ButtonBehaviour attackDirectionButtonUp;
+    public ButtonBehaviour attackDirectionButtonDown;
+    public ButtonBehaviour attackDirectionButtonRight;
+    public ButtonBehaviour attackDirectionButtonLeft;
+
+    [Header("Attack Pattern Display")]
+    public ButtonBehaviour confirmAttackButton;
+    public ButtonBehaviour cancelAttackButton;
     
+    [HideInInspector] public UnityEventVector2Int OnPlayerMovePressed;
+    [HideInInspector] public UnityEventVector2Int OnAttackDirectionPressed;
+    [HideInInspector] public UnityEvent OnAttackConfirmPressed;
+    [HideInInspector] public UnityEvent OnAttackCancelPressed;
+
     private void Start()
     {
-        buttonUp.OnClick.AddListener(delegate
+        movementButtonUp.OnClick.AddListener(delegate
         {
             OnPlayerMovePressed.Invoke(Vector2Int.up);
         });
-        buttonDown.OnClick.AddListener(delegate
+        movementButtonDown.OnClick.AddListener(delegate
         {
             OnPlayerMovePressed.Invoke(Vector2Int.down);
         });
-        buttonRight.OnClick.AddListener(delegate
+        movementButtonRight.OnClick.AddListener(delegate
         {
             OnPlayerMovePressed.Invoke(Vector2Int.right);
         });
-        buttonLeft.OnClick.AddListener(delegate
+        movementButtonLeft.OnClick.AddListener(delegate
         {
             OnPlayerMovePressed.Invoke(Vector2Int.left);
         });
+
+        attackDirectionButtonUp.OnClick.AddListener(delegate
+        {
+            OnAttackDirectionPressed.Invoke(Vector2Int.up);
+        });
+        attackDirectionButtonDown.OnClick.AddListener(delegate
+        {
+            OnAttackDirectionPressed.Invoke(Vector2Int.down);
+        });
+        attackDirectionButtonRight.OnClick.AddListener(delegate
+        {
+            OnAttackDirectionPressed.Invoke(Vector2Int.right);
+        });
+        attackDirectionButtonLeft.OnClick.AddListener(delegate
+        {
+            OnAttackDirectionPressed.Invoke(Vector2Int.left);
+        });
+
+        confirmAttackButton.OnClick.AddListener(delegate
+        {
+            OnAttackConfirmPressed.Invoke();
+        });
+        cancelAttackButton.OnClick.AddListener(delegate
+        {
+            OnAttackCancelPressed.Invoke();
+        });
+    }
+
+    public void SetMovementButtons(bool value)
+    {
+        movementButtonUp.gameObject.SetActive(value);
+        movementButtonDown.gameObject.SetActive(value);
+        movementButtonRight.gameObject.SetActive(value);
+        movementButtonLeft.gameObject.SetActive(value);
+    }
+    public void SetAttackDirectionButtons(bool value)
+    {
+        attackDirectionButtonUp.gameObject.SetActive(value);
+        attackDirectionButtonDown.gameObject.SetActive(value);
+        attackDirectionButtonRight.gameObject.SetActive(value);
+        attackDirectionButtonLeft.gameObject.SetActive(value);
+    }
+    public void SetAttackCancelButton(bool value)
+    {
+        cancelAttackButton.gameObject.SetActive(value);
+    }
+    public void SetAttackConfirmButton(bool value)
+    {
+        confirmAttackButton.gameObject.SetActive(value);
     }
 }
